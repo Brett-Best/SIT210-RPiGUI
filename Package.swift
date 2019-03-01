@@ -9,6 +9,6 @@ let package = Package(
     .package(url: "https://github.com/rhx/SwiftGtk.git", .branch("master")),
   ],
   targets: [
-    .target(name: "RPiGUI", dependencies: ["Gtk"]),
+  .target(name: "RPiGUI", dependencies: ["SwiftyGPIO", "Gtk"]),
   ]
 )
