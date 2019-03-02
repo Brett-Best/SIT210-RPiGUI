@@ -14,6 +14,11 @@ class LEDController {
   private let allLEDGPIOs: [GPIO]
   
   init() {
+    // Physical Pin -> GPIO Mapping
+    // 7 -> P4
+    // 11 -> P17
+    // 13 -> P27
+    
     guard let redLEDGPIO = gpios[.P4], let greenLEDGPIO = gpios[.P17], let blueLEDGPIO = gpios[.P27] else {
       fatalError("Unable to configure GPIOs")
     }
@@ -40,7 +45,7 @@ class LEDController {
   }
   
   func set(on: Bool, for led: LED) {
-    print("Set \(led) to \(on)!")
+    print("Set LED '\(led)' to '\(on ? "on" : "off")'")
     #if !os(macOS)
     GPIO(for: led)?.value = on ? 1 : 0
     #endif

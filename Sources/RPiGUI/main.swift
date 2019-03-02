@@ -2,6 +2,20 @@ import Gtk
 import CGtk
 import GLib
 
+print("""
+# Project
+RPiGUI - SIT210-5.2C
+
+## Wiring Information
+--------------------
+LED   | Physical Pin
+--------------------
+Red   | 7
+Green | 11
+Blue  | 13\n\n
+## Logging:\n
+""")
+
 let ledController = LEDController()
 
 func addRadioButtons(to box: Box) {
@@ -33,7 +47,7 @@ func createWindow(application: ApplicationProtocol) -> ApplicationWindow {
   
   window.title = "RPiGUI - LED Controller"
   window.set(position: .center)
-  window.setDefaultSize(width: 250, height: 200)
+  window.setDefaultSize(width: 300, height: 200)
   
   let box = createBox(exitButtonTouched: {
     ledController.reset()
