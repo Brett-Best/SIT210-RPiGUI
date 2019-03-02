@@ -73,10 +73,6 @@ let status = Application.run { app in
   window.showAll()
 }
 
-signal(SIGINT) { _ in
-  ledController.reset()
-}
-
 guard let status = status else {
   fatalError("Could not create Application, unknown status.")
 }
