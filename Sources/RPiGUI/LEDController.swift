@@ -27,6 +27,8 @@ class LEDController {
     #if !os(macOS)
     allLEDGPIOs.forEach { $0.direction = .OUT }
     #endif
+    
+    set(on: true, for: .red)
   }
   
   private func GPIO(for LED: LED) -> GPIO? {
