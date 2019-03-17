@@ -19,14 +19,13 @@ Blue  | 13\n\n
 let ledController = LEDController()
 
 func addRadioButtons(to box: Box) {
-  let redGtkRadioButton = gtk_radio_button_new_with_label(nil, "Red LED")!
-  let redLEDRadioButton = RadioButton(cPointer: redGtkRadioButton)
+  let redLEDRadioButton = RadioButton(label: "Red LED")
   box.packStart(child: redLEDRadioButton, expand: true, fill: true, padding: 8)
   
-  let greenLEDRadioButton = RadioButton(label: SList(redLEDRadioButton.group), label: "Green LED")
+  let greenLEDRadioButton = RadioButton(group: redLEDRadioButton.group, label: "Green LED")
   box.packStart(child: greenLEDRadioButton, expand: true, fill: true, padding: 8)
   
-  let blueLEDRadioButton = RadioButton(label: SList(greenLEDRadioButton.group), label: "Blue LED")
+  let blueLEDRadioButton = RadioButton(group: greenLEDRadioButton.group, label: "Blue LED")
   box.packStart(child: blueLEDRadioButton, expand: true, fill: true, padding: 8)
   
   redLEDRadioButton.connect(signal: .toggled) {
